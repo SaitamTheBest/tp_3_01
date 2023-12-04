@@ -41,4 +41,4 @@ echo ($age > 17) ? "majeur" : "mineur";
 echo "<br>";
 $age = 19;
 echo " age : 19 ";
-echo ($age > 17) ? "majeur" : "mineur";
+//echo ($age > 17) ? "majeur" : "mineur";
