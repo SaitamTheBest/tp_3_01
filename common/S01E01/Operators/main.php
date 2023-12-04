@@ -5,10 +5,10 @@ $a = 1;
 echo "a =" . $a;
 
 $testEgalite = $a == 1;
-echo "<br>" . " 1 == 1" . $testEgalite;
+echo "<br>" . " 1 == 1" . "$testEgalite";
 
 $testEgaliteType = 1 === 1;
-echo "<br>" . "1 === 1 " . $testEgaliteType;
+echo "<br>" . "1 === 1 " . "$testEgaliteType";
 
 $a++;
 echo "<br>" . "a++ : $a";
