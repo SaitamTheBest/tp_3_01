@@ -1,7 +1,9 @@
 <?php
 
-use Initial\S01E02\MyClass;
+namespace Initial\S01E02;
 
-$class = new MyClass();
-var_dump($class->constante);
-var_dump($class->variable);
+class MyClass extends \MyMotherAbstractClass
+{
+    public CONST constante = 'Je suis une constante';
+    public $variable;
+}

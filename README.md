@@ -26,3 +26,5 @@ Puis on fait la commande
 Enfin on lance un navigateur ou l'on va entrer la recherche http://127.0.0.1:8000/ pour accéder au résultat 
 
 Penser a refresh la page a chaque modif du fichier (raccourcit F5) 
+
+
