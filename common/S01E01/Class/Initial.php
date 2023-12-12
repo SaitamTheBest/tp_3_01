@@ -2,30 +2,34 @@
 
 namespace Initial\S01E01;
 
-use Cassandra\Exception\InvalidSyntaxException;
+use Countable;
 use Stringable;
 
 class Initial implements Stringable
 {
-    function capitalLetter($arg)
+    function capitalLetter($arg): void
     {
+        //Create a function that takes a string and returns the string in uppercase.
         echo strtoupper($arg);
     }
-    
-    function escapeHTML($arg){
+
+    function escapeHTML($arg): void
+    {
         echo htmlspecialchars($arg, ENT_QUOTES, 'UTF-8');
     }
 
-    function convert($tab){
+    function convert($tab): void
+    {
         echo implode($tab);
     }
 
-    function verifyEmail($arg)
+    function verifyEmail($arg): void
     {
         echo "L'email est valide : ".filter_var($arg, FILTER_VALIDATE_EMAIL);
     }
 
-    function lastCharacter($arg){
+    function lastCharacter($arg):void
+    {
         echo substr($arg, -1);
     }
 
