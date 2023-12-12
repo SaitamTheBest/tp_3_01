@@ -139,7 +139,7 @@ $initial->escapeHTML('<em>hello world</em>');
 echo "<br>";
 $initial->convert(["hello","world"]);
 echo "<br>";
-$initial->verifyEmail("dqzkudhzd");
+$initial->verifyEmail("dqzkudhzd@gmail.com");
 echo "<br>";
 $initial->lastCharacter("hello world");
 echo "<br>";
