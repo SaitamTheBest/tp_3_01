@@ -1,6 +1,6 @@
 <?php
 
-namespace S01E03;
+namespace PW\Interface;
 interface I
 {
     public function hello(): string;

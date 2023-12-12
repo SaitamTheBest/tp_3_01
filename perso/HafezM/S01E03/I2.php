@@ -1,5 +1,5 @@
 <?php
-namespace S01E03;
+namespace PW\Interface;
 interface I2{
     public function world() : string;
 }
