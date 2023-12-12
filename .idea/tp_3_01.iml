@@ -2,7 +2,10 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+<<<<<<< Updated upstream
       <sourceFolder url="file://$MODULE_DIR$/common" isTestSource="false" packagePrefix="Initial" />
+=======
+>>>>>>> Stashed changes
       <sourceFolder url="file://$MODULE_DIR$/perso/HafezM" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
