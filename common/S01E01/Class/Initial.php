@@ -25,10 +25,8 @@ class Initial implements Stringable
         echo "L'email est valide : ".filter_var($arg, FILTER_VALIDATE_EMAIL);
     }
 
-    function deleteLastCharacter($arg){
-        echo $arg;
-        array_slice($arg, end($arg));
-        echo $arg;
+    function lastCharacter($arg){
+        echo substr($arg, -1);
     }
 
     function mergeArray($arg1,$arg2){
