@@ -27,9 +27,16 @@ class Initial implements Stringable
 
     function verifyEmail($arg): void
     {
-        //Verify if the argument is a valid email.
-        echo "L'email est valide : ".filter_var($arg, FILTER_VALIDATE_EMAIL);
+        // Verify if the argument is a valid email.
+        $isValidEmail = filter_var($arg, FILTER_VALIDATE_EMAIL);
+
+        if ($isValidEmail !== false) {
+            echo "L'email est valide : " . $isValidEmail;
+        } else {
+            echo "L'email n'est pas valide.";
+        }
     }
+
 
     function lastCharacter($arg):void
     {
