@@ -1,7 +1,6 @@
 <?php
 namespace S01E03;
 
-use S01E03\A;
 class B extends A
 {
     use C;
