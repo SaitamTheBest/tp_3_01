@@ -33,65 +33,81 @@ class Initial implements Stringable
         echo substr($arg, -1);
     }
 
-    function mergeArray($arg1,$arg2){
-        echo array_merge($arg1,$arg2);
-    }
 
 
-    function printing(){
+    function printing(): void
+    {
+        //Print the file name, the method name and the class name.
         echo __FILE__."<br>";
         echo __METHOD__."<br>";
         echo __CLASS__;
     }
 
-    function reverse($arg1){
+    function reverse($arg1): void
+    {
+        //Reverse a string
         echo strrev($arg1);
     }
 
-    function mergeStrings(...$args) {
+    function mergeStrings(...$args): void
+    {
+        //Merge strings
         echo implode('', $args);
     }
 
     function __toString(): string
     {
+        //Override toString method.
         return self::class;
     }
 
 
 
-    function printClassNameWithFullNamespace(){
+    function printClassNameWithFullNamespace(): void
+    {
+        //Print the class name with full namespace.
         echo __CLASS__;
     }
 
 
 
     function throwException(){
+        //Throw an exception.
         throw new \Exception("Exception");
     }
 
-    function reverseAnArrayByIndex($arg){
+    function reverseAnArrayByIndex($arg): void
+    {
+        //Reverse an array by index.
         $keys = array_keys($arg);
         krsort($keys);
         echo implode(', ', $keys);
     }
 
-    function mergeTwoArrays($arg1,$arg2){
+    function mergeTwoArrays($arg1,$arg2): void
+    {
+        //Merge two arrays : Adding the second array's values to the first array's values.
         $result = array_merge($arg1,$arg2);
         echo implode(', ', $result);
     }
 
-    function printAllCellsWhoAreNotOnTheSecondTable($arg1,$arg2){
+    function printAllCellsWhoAreNotOnTheSecondTable($arg1,$arg2): void
+    {
+        //print all cells who are not on the second table/
         $result = array_diff($arg1,$arg2);
         echo implode(', ', $result);
     }
 
     //Maps a function that tries to convert the case of each value of an array reference, if it is a string, with capital letter first, then all lowercase (title case).
-    function convertCase($arg){
+    function convertCase($arg): void
+    {
+        //Converts the case of each value of an array reference, if it is a string, with capital letter first, then all lowercase (title case).
         echo implode(',', array_map('ucwords', $arg));
     }
 
     function lengthOfVariable($arg): void
     {
+        //Verify if the argument is a string or an array, and print the length of the string or the number of elements in the array.
         if (is_string($arg)){
             echo strlen($arg);
         } else if (is_array($arg) || $arg instanceof Countable){
@@ -115,7 +131,7 @@ $myArray3 = array(
 $initial = new Initial();
 $initial->capitalLetter("hello world");
 echo "<br>";
-$initial->escapeHTML("<p>hello world</p>");
+$initial->escapeHTML('<em>hello world</em>');
 echo "<br>";
 $initial->convert(["hello","world"]);
 echo "<br>";
