@@ -15,21 +15,25 @@ class Initial implements Stringable
 
     function escapeHTML($arg): void
     {
+        //Create a function that takes a string and returns the string with the HTML characters converted to HTML entities.
         echo htmlspecialchars($arg, ENT_QUOTES, 'UTF-8');
     }
 
     function convert($tab): void
     {
+        //Convert an array to a string, with the items separated by commas.
         echo implode($tab);
     }
 
     function verifyEmail($arg): void
     {
+        //Verify if the argument is a valid email.
         echo "L'email est valide : ".filter_var($arg, FILTER_VALIDATE_EMAIL);
     }
 
     function lastCharacter($arg):void
     {
+        //Print the last character of a string.
         echo substr($arg, -1);
     }
 
