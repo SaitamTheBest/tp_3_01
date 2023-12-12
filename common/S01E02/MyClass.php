@@ -2,8 +2,8 @@
 
 namespace Initial\S01E02;
 
-class MyClass
+class MyClass extends \MyMotherAbstractClass
 {
-        CONST constante = 'Je suis une constante';
-        var $variable;
+    public CONST constante = 'Je suis une constante';
+    public $variable;
 }
