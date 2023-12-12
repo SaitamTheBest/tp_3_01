@@ -45,6 +45,7 @@ echo $a;
 echo '<br>';
 echo $b;
 
+// On créee une classe anonyme qui hérite de A
 $anon = new class() extends A{};
 echo '<br>';
 echo $anon->hello() . ' ' . $anon->world();

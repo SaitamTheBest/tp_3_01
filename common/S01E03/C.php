@@ -10,11 +10,11 @@ trait C{
         return self::$nameC;
     }
 
-    function hello() : string{
+    public function hello() : string{
         return "Hello C ";
     }
 
-    function world() : string{
+    public function world() : string{
         return "World C!";
     }
 
