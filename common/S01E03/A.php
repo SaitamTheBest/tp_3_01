@@ -31,6 +31,10 @@ class A implements I, I2
         echo self::NAME . ' ' . static::$nameA;
     }
 
+    // Premier appel: retourne 0
+    // Second appel: retourne 1
+    // ...
+    // 10ème appel: retourne 9
     public function countTo10(){
         for($i = 0; $i < 10; $i++){
             yield $i;

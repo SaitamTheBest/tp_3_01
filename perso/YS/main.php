@@ -1,1 +1,51 @@
-<?php echo 'Hello World'; ?>
+<?php
+
+namespace PW\Class;
+
+use PW\Interface\I;
+use PW\Interface\I2;
+use PW\Attribute\R301Attribute;
+
+#[R301Attribute]
+class A implements I, I2
+{
+    static $nameA = 'a';
+    public const NAME = 'A';
+
+    public function __toString(): string
+    {
+        return self::$nameA;
+    }
+
+    public function world() : string
+    {
+        return "World A!";
+    }
+
+
+    public function hello() : string
+    {
+        return "Hello A ";
+    }
+
+    public function getName(){
+        echo self::NAME . ' ' . static::$nameA;
+    }
+
+    public function countTo10(){
+        for($i = 0; $i < 10; $i++){
+            yield $i; //yield : https://www.php.net/manual/fr/language.generators.overview.php
+
+        }
+        // ça fais une erreur
+        //return $this;
+    }
+
+    public function displayCountTo10(){
+        foreach ($this->countTo10() as $i){
+            echo $i . ' ';
+        }
+        echo '<br>';
+    }
+}
+?>
