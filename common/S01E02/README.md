@@ -10,6 +10,7 @@ date.timezone = "Europe/Paris"
 puis allez dans la console (CMD ou Console de PHPStorm)
 faites les commandes:
 php -i
-php -i | findstr "php.ini"
+php -i | findstr "php.ini" (sur windows)
+php -i | grep "php.ini" (sur linux)
 
 Le tp peut etre fait apres ca 
