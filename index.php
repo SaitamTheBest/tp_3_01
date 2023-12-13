@@ -18,6 +18,7 @@
 <a title="Classe partie 1" href="/common/S01E01/Class/Initial.php">Classe partie 1</a>
 <br>
 <h1>S01E02</h1>
+<a title="class partie 1" href="/common/S01E02/main.php">class partie 1</a>
 <br>
 
 <br>

@@ -1,9 +1,109 @@
 <?php
 
-namespace Initial\S01E02;
 
-class MyClass extends \MyMotherAbstractClass
+//Création d'une classe abstraite
+abstract class MyMotherAbstractClass
 {
-    public CONST constante = 'Je suis une constante';
-    public $variable;
+    // avec un attribut protégé
+    protected $motherInteger = 10;
+}
+
+//Création d'une interface Myinterface
+interface MyInterface
+{
+    //création d'une fonction dans l'interface
+    public function afficherNombreDe1A20() : void;
+}
+
+//Création d'une classe qui hérite des attributs de MyMotherAbstractClass et implémente l'interface MyInterface
+class MyClass extends MyMotherAbstractClass implements MyInterface
+{
+    //création d'une constante publique qui contient une chaine de caractère
+        public CONST constante = 'Je suis une constante';
+
+    //création d'un attribut publique
+        public $variable;
+
+        // constructeur basique pour donner une valeur a l'attribut "variable"
+    public function __construct($varRandom){
+        $this->variable = $varRandom;
+    }
+    //fonction getter pour récupérer la valeur portected de la classe mère
+    public function getMotherInt() : int{
+        return $this->motherInteger;
+    }
+    // implémentation de la fonction de l'interface
+    public function afficherNombreDe1A20() : void
+    {
+        for ($i = 1; $i <= 20; $i++) {
+            echo $i;
+            echo " ";
+        }
+    }
+
+    /**
+      * @return array Sort an array of elements
+      */
+    //fonction pour trié un tableau
+    function sortList($myArray) : array {
+        arsort($myArray);
+        return $myArray;
+    }
+
+    //fonction pour créer et sauvegarder une image avec du texte dessus
+    function createImageAndSave(string $name) : void{
+        $text = "I AM " . $name . " & I LOVE PHP";
+        $image = imagecreatefromstring($text);
+        imagejpeg($image, "monImage.jpeg");
+
+        //testez si ça marche svp je ne peux pas avec code together
+    }
+
+    //récupère le contenue de la page google et le met dans un fichier .txt
+    function getGoogleContentAndSave() : void {
+        $response = http_get("https://google.com");
+        file_put_contents("contenuGoogle.txt", $response);
+    }
+
+    //fonction pour renvoyer le type d'une variable non typé
+    function renvoiTypeDunParamNonTyper($param) : string{
+        return gettype($param);
+    }
+
+    function switchEtmatchPourUnCaract($caract){
+        $vowels = ['a','e','i','o','u'];
+        echo "<br>";
+        echo 'switch : ';
+        switch ($caract){
+            case in_array(strtolower($caract), $vowels):
+                echo 'voyelle';
+                break;
+            case !in_array(strtolower($caract), $vowels):
+                echo 'consonne';
+                break;
+            default:
+                echo 'y a un problème docteur';
+        };
+
+        echo "<br>";
+        echo "<br>";
+        echo "match : ";
+        echo match(true) {
+            in_array(strtolower($caract), $vowels) => 'voyelle',
+            !in_array(strtolower($caract), $vowels) => 'consonne',
+            default => 'y a un problème docteur',
+        }, "<br>";
+    }
+
+    function whilePlusBreak($fin): void {
+        $i = 0;
+        while (true){
+            echo $i;
+            $i++;
+            if ($i >= $fin){
+                break;
+            }
+        }
+    }
+
 }
