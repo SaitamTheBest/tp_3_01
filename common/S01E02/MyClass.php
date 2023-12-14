@@ -121,11 +121,12 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
             $i++;
         }while ($i < sizeof($tab));
     }
-    function axelfaitlela() : void{
-        if (isset($_GET['test'])) {
-            echo $_GET['test'];
+    //class method that returns the currently passed HTTP GET value named test
+    function HTTP_GET_value(string $value) : string{
+        if (isset($_GET[$value])) {
+            return $_GET[$value];
         } else {
-            // Fallback behaviour goes here
+            return "HTTP GET failed";
         }
     }
 
