@@ -79,6 +79,13 @@ echo "<br>";
 echo "fin à 25 : ";
 $class->whilePlusBreak(25);
 
+//test fonction qui affiche les nombres pair d'un tableau
+$tabPair = [1,2,3,4,5,6,7,8,9,10,20,25];
+$class->fonctionDoetContinue($tabPair);
+
+//test fonction d'affichae de la ram utilisé et total utilisable
+$class->fnRam();
+
 
 //MyBDDClass
 MyBDDClass::connectBDD("localhost", "root", "root", "WL");
@@ -88,6 +95,5 @@ $class->createImageAndSave("test");
 
 $class->getGoogleContentAndSave();
 
-?>
 
 

@@ -106,4 +106,50 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
         }
     }
 
+//class method qui permet d'afficher les valeur pair d'un tableau, utilise continue si elles ne le sont pas pour zapper la partie de l'affichage
+    function fonctionDoetContinue(array $tab) : void
+    {
+        $i = 0 ;
+        do{
+            if (($tab[$i] % 2) == 1){ //si la valeur de tab[i] est impair
+                $i++;
+                continue; //continue permet de sauter la suite de la boucle
+            }
+            echo "<br>";
+            echo "la valeur " . strval($i +1 ) . " du tableau est : "; //strval = to String
+            var_dump($tab[$i]);
+            $i++;
+        }while ($i < sizeof($tab));
+    }
+    function axelfaitlela() : void{
+        if (isset($_GET['test'])) {
+            echo $_GET['test'];
+        } else {
+            // Fallback behaviour goes here
+        }
+    }
+
+    function redirectHTTP (string $your_script){
+
+        $redirectUrl = $your_script;
+
+        //use http code 302
+        header('Location: ' . $redirectUrl, true, 302);
+        exit();
+    }
+    function fnRam()
+    {
+//class method that returns the currently consumed RAM and the maximum RAM your script can use (PHP maximum, not the current one)
+        echo "<br>";
+        $usedMomory = memory_get_usage($real_usage = false); // récupère la ram, false permet de récupéré la ram utilisé par le script
+        $totalMemory = memory_get_usage($real_usage = true);// true permet de récupérer la ram maximal alloué
+        echo "mémoire maximum utilisable : ";
+        var_dump($totalMemory);
+
+        echo "<br>";
+
+        echo "mémoire utilisé actuellement par le script : ";
+        var_dump($usedMomory);
+
+    }
 }
