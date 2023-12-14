@@ -61,7 +61,7 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
 
     //récupère le contenue de la page google et le met dans un fichier .txt
     function getGoogleContentAndSave() : void {
-        $response = http_get("https://google.com");
+        $response = file_get_contents("https://www.google.com");
         file_put_contents("contenuGoogle.txt", $response);
     }
 
@@ -121,11 +121,12 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
             $i++;
         }while ($i < sizeof($tab));
     }
-    function axelfaitlela() : void{
-        if (isset($_GET['test'])) {
-            echo $_GET['test'];
+    //class method that returns the currently passed HTTP GET value named test
+    function HTTP_GET_value(string $value) : string{
+        if (isset($_GET[$value])) {
+            return $_GET[$value];
         } else {
-            // Fallback behaviour goes here
+            return "HTTP GET failed";
         }
     }
 
