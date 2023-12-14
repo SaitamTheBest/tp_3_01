@@ -61,7 +61,7 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
 
     //récupère le contenue de la page google et le met dans un fichier .txt
     function getGoogleContentAndSave() : void {
-        $response = http_get("https://google.com");
+        $response = file_get_contents("https://www.google.com");
         file_put_contents("contenuGoogle.txt", $response);
     }
 
