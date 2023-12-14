@@ -36,6 +36,8 @@ Vous mettez User : ``root`` et mot de passe : ``root``.
 
 Puis vous faites **Next** et **Execute** jusqu'à ce que l'installation soit terminée.
 
+Ensuite, aller dans le main.php du TP2 et remplacer WL par vos initiales.
+
 
 
 
