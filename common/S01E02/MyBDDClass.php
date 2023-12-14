@@ -16,12 +16,12 @@ class MyBDDClass
             $pdo->query("DROP TABLE IF EXISTS utilisateurs");
             // Création d'une table
             $requeteCreationTable = "CREATE TABLE IF NOT EXISTS utilisateurs (
-        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        nom VARCHAR(30) NOT NULL,
-        prenom VARCHAR(30) NOT NULL,
-        email VARCHAR(50),
-        date_inscription TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )";
+                id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                nom VARCHAR(30) NOT NULL,
+                prenom VARCHAR(30) NOT NULL,
+                email VARCHAR(50),
+                date_inscription TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )";
 
             $pdo->exec($requeteCreationTable);
             echo "Table créée avec succès.";
