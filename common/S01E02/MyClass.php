@@ -50,13 +50,31 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
         return $myArray;
     }
 
-    //fonction pour créer et sauvegarder une image avec du texte dessus
+    //fonction pour créer et sauvegarder une image avec du texte dessus, fond bleu, cercle rouge, texte dans cercle
     function createImageAndSave(string $name) : void{
-        $text = "I AM " . $name . " & I LOVE PHP";
-        $image = imagecreatefromstring($text);
-        imagejpeg($image, "monImage.jpeg");
+        //initialisation variable
+        $height = 200;
+        $width = 200;
 
-        //testez si ça marche svp je ne peux pas avec code together
+        //création image
+        $img = imagecreate($width, $height,);
+
+        //création texte
+        $text = "I AM " . $name . " & I LOVE PHP";
+
+        //color le fond de l'image
+        imagecolorallocate($img, 0, 0, 255);
+
+        //crée la couleur du cercle puis fait crée le dit texte sur l'image
+        $circle_color = imagecolorallocate($img, 255, 0, 0);
+        imagefilledellipse($img, $width / 2, $height / 2, $width, $height, $circle_color);
+
+        //couleur du texte et gère son emplacement
+        $text_color = imagecolorallocate($img, 255, 255, 255);
+        imagestring($img, 5, 5, $height /2 - 10,  $text, $text_color);
+
+        //sauvegarder l'image sur le disque
+        imagejpeg($img, "monImage.jpeg");
     }
 
     //récupère le contenue de la page google et le met dans un fichier .txt

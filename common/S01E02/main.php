@@ -87,11 +87,12 @@ $class->fonctionDoetContinue($tabPair);
 $class->fnRam();
 
 
+$class->createImageAndSave("test");
+
+
 //Se connecter à la base de données
 //Remplacer le nom de la base par vos initiales (exemple : WL pour William Lefebvre)
-MyBDDClass::connectBDD("localhost", "root", "root", "WL");
-
-$class->createImageAndSave("test");
+MyBDDClass::connectBDD("localhost", "root", "root", "AB");
 
 
 $class->getGoogleContentAndSave();
