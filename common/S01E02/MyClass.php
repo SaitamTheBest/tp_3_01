@@ -121,12 +121,13 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
             $i++;
         }while ($i < sizeof($tab));
     }
-    //class method that returns the currently passed HTTP GET value named test
+    //class method that returns the currently passed HTTP GET value named test,
+    //for this to work add ?name=test at the end of the local website address
     function HTTP_GET_value(string $value) : string{
         if (isset($_GET[$value])) {
             return $_GET[$value];
         } else {
-            return "HTTP GET failed";
+            return "HTTP GET failed, don't forget to add ?name=test in the website address";
         }
     }
 
