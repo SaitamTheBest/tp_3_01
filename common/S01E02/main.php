@@ -87,14 +87,37 @@ $class->fonctionDoetContinue($tabPair);
 $class->fnRam();
 
 
-//Se connecter à la base de données
-//Remplacer le nom de la base par vos initiales (exemple : WL pour William Lefebvre)
-MyBDDClass::connectBDD("localhost", "root", "root", "WL");
-
 $class->createImageAndSave("test");
 
 
-$class->getGoogleContentAndSave();
+//Se connecter à la base de données
+//Remplacer le nom de la base par vos initiales (exemple : WL pour William Lefebvre)
+MyBDDClass::connectBDD("localhost", "root", "root", "AB");
+
+//Permet de récupérer les infos du serveur
+$infos = $class->getRequestInfo();
+
+// Affichage des informations
+echo "Nom de l'hôte : " . $infos['host'] . "<br>";
+echo "Adresse IP du serveur : " . $infos['server_ip'] . "<br>"; //n'affiche rien car on est en local
+echo "Adresse IP du client : " . $infos['client_ip'] . "<br>";
+echo "Méthode de la requête : " . $infos['request_method'] . "<br>";
+
+//$class->createImageAndSave("test");
 
 
+$class->getGoogleContentAndSave(); //save in contenuGoogle.txt
 
+echo "<br>";
+echo $class->HTTP_GET_value("name");
+
+echo "<br>";
+
+//create a button for the method redirectHTTP
+if (isset($_POST['activate_button'])) {
+    $class->redirectHTTP("redirect_http.php");
+}
+
+echo "<form id='activationForm' method='post'>
+    <button type='submit' name='activate_button'>redirection http</button>
+</form>";
