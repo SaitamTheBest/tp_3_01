@@ -122,21 +122,19 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
         }while ($i < sizeof($tab));
     }
     //class method that returns the currently passed HTTP GET value named test,
-    //for this to work add ?name=test at the end of the local website address
+    //for this to work, add ?name=test at the end of the local website address
     function HTTP_GET_value(string $value) : string{
         if (isset($_GET[$value])) {
             return $_GET[$value];
         } else {
-            return "HTTP GET failed, don't forget to add ?name=test in the website address";
+            return "HTTP GET failed, don't forget to add ?function_arg=get_value in the website address";
         }
     }
 
-    function redirectHTTP (string $your_script){
-
-        $redirectUrl = $your_script;
-
-        //use http code 302
-        header('Location: ' . $redirectUrl, true, 302);
+    //class method that outputs HTTP headers to redirect (HTTP 302) to another script (add a link to your script)
+    function redirectHTTP (string $your_script) : void{
+        //uses http code 302
+        header('Location: ' . $your_script, true, 302);
         exit();
     }
     function fnRam()

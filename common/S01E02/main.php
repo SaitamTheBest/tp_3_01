@@ -89,12 +89,23 @@ $class->fnRam();
 
 //Se connecter à la base de données
 //Remplacer le nom de la base par vos initiales (exemple : WL pour William Lefebvre)
-MyBDDClass::connectBDD("localhost", "root", "root", "WL");
+MyBDDClass::connectBDD("localhost", "root", "root", "AB");
 
-$class->createImageAndSave("test");
-
-
-$class->getGoogleContentAndSave();
+//$class->createImageAndSave("test");
 
 
+$class->getGoogleContentAndSave(); //save in contenuGoogle.txt
 
+echo "<br>";
+echo $class->HTTP_GET_value("name");
+
+echo "<br>";
+
+//create a button for the method redirectHTTP
+if (isset($_POST['activate_button'])) {
+    $class->redirectHTTP("redirect_http.php");
+}
+
+echo "<form id='activationForm' method='post'>
+    <button type='submit' name='activate_button'>redirection http</button>
+</form>";
