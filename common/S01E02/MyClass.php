@@ -124,12 +124,12 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
         }
     }
 
-//class method qui permet d'afficher les valeur pair d'un tableau, utilise continue si elles ne le sont pas pour zapper la partie de l'affichage
+//class method qui permet d'afficher les valeurs impaires d'un tableau, utilise continue si elles ne le sont pas pour zapper la partie de l'affichage
     function fonctionDoetContinue(array $tab) : void
     {
         $i = 0 ;
         do{
-            if (($tab[$i] % 2) == 1){ //si la valeur de tab[i] est impair
+            if (($tab[$i] % 2) == 0){ //si la valeur de tab[i] est pair
                 $i++;
                 continue; //continue permet de sauter la suite de la boucle
             }
