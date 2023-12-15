@@ -1,19 +1,7 @@
 <?php
 
-
-//Création d'une classe abstraite
-abstract class MyMotherAbstractClass
-{
-    // avec un attribut protégé
-    protected $motherInteger = 10;
-}
-
-//Création d'une interface Myinterface
-interface MyInterface
-{
-    //création d'une fonction dans l'interface
-    public function afficherNombreDe1A20() : void;
-}
+include('MyMotherAbstractClass.php');
+include('MyInterface.php');
 
 //Création d'une classe qui hérite des attributs de MyMotherAbstractClass et implémente l'interface MyInterface
 class MyClass extends MyMotherAbstractClass implements MyInterface
@@ -24,11 +12,11 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
     //création d'un attribut publique
         public $variable;
 
-        // constructeur basique pour donner une valeur a l'attribut "variable"
+    // constructeur basique pour donner une valeur a l'attribut "variable"
     public function __construct($varRandom){
         $this->variable = $varRandom;
     }
-    //fonction getter pour récupérer la valeur portected de la classe mère
+    //fonction getter pour récupérer la valeur protected de la classe mère
     public function getMotherInt() : int{
         return $this->motherInteger;
     }
@@ -49,7 +37,7 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
         arsort($myArray);
         return $myArray;
     }
-
+    //class method that creates a JPEG image representing a red circle and the word "I AM [your initials] & I LOVE PHP" over a blue background and saves it on disk
     //fonction pour créer et sauvegarder une image avec du texte dessus, fond bleu, cercle rouge, texte dans cercle
     function createImageAndSave(string $name) : void{
         //initialisation variable
@@ -77,15 +65,76 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
         imagejpeg($img, "monImage.jpeg");
     }
 
-    //récupère le contenue de la page google et le met dans un fichier .txt
+    //class method that writes the contents of www.google.com into a file
+    //récupère le contenu de la page google et le met dans un fichier .txt
     function getGoogleContentAndSave() : void {
         $response = file_get_contents("https://www.google.com");
         file_put_contents("contenuGoogle.txt", $response);
     }
 
+    //class method that outputs HTTP headers to redirect (HTTP 302) to another script (add a link to your script)
+    function redirectHTTP (string $your_script) : void{
+        //uses http code 302
+        header('Location: ' . $your_script, true, 302);
+        exit();
+    }
+
+
+    //class method that returns the type of an given, untyped parameter
     //fonction pour renvoyer le type d'une variable non typé
     function renvoiTypeDunParamNonTyper($param) : string{
         return gettype($param);
+    }
+
+    //class method that returns an array containing the name of the current host, server and client IP, and request method
+    public function getRequestInfo(): array
+    {
+        // Tableau pour stocker les informations
+        $info = array();
+
+        /*
+         * Pour chaque ligne, on teste avec un test ternaire si la variable existe sur le serveur (isset), si elle existe on la retourne sinon on retourne null
+         */
+        // Nom de l'hôte
+        $info['host'] = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : null;
+
+        // Adresse IP du serveur
+        $info['server_ip'] = isset($_SERVER['SERVER_ADDR']) ? $_SERVER['SERVER_ADDR'] : null;
+
+        // Adresse IP du client
+        $info['client_ip'] = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null;
+
+        // Méthode de la requête
+        $info['request_method'] = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : null;
+
+        // Retourner le tableau d'informations
+        return $info;
+    }
+
+    //class method that returns the currently passed HTTP GET value named test,
+    //for this to work, add ?test=test at the end of the local website address
+    function HTTP_GET_value(string $value) : string{
+        if (isset($_GET[$value])) {
+            return $_GET[$value];
+        } else {
+            return "HTTP GET failed, don't forget to add ?function_arg=get_value in the website address";
+        }
+    }
+
+    function fnRam()
+    {
+    //class method that returns the currently consumed RAM and the maximum RAM your script can use (PHP maximum, not the current one)
+        echo "<br>";
+        $usedMomory = memory_get_usage($real_usage = false); // récupère la ram, false permet de récupéré la ram utilisé par le script
+        $totalMemory = memory_get_usage($real_usage = true);// true permet de récupérer la ram maximal alloué
+        echo "mémoire maximum utilisable : ";
+        var_dump($totalMemory);
+
+        echo "<br>";
+
+        echo "mémoire utilisé actuellement par le script : ";
+        var_dump($usedMomory);
+
     }
 
     function switchEtmatchPourUnCaract($caract){
@@ -138,69 +187,5 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
             var_dump($tab[$i]);
             $i++;
         }while ($i < sizeof($tab));
-    }
-    //class method that returns the currently passed HTTP GET value named test,
-    //for this to work, add ?name=test at the end of the local website address
-    function HTTP_GET_value(string $value) : string{
-        if (isset($_GET[$value])) {
-            return $_GET[$value];
-        } else {
-            return "HTTP GET failed, don't forget to add ?function_arg=get_value in the website address";
-        }
-    }
-
-    //class method that outputs HTTP headers to redirect (HTTP 302) to another script (add a link to your script)
-    function redirectHTTP (string $your_script) : void{
-        //uses http code 302
-        header('Location: ' . $your_script, true, 302);
-        exit();
-    }
-    function fnRam()
-    {
-//class method that returns the currently consumed RAM and the maximum RAM your script can use (PHP maximum, not the current one)
-        echo "<br>";
-        $usedMomory = memory_get_usage($real_usage = false); // récupère la ram, false permet de récupéré la ram utilisé par le script
-        $totalMemory = memory_get_usage($real_usage = true);// true permet de récupérer la ram maximal alloué
-        echo "mémoire maximum utilisable : ";
-        var_dump($totalMemory);
-
-        echo "<br>";
-
-        echo "mémoire utilisé actuellement par le script : ";
-        var_dump($usedMomory);
-
-    }
-
-    public function getRequestInfo()
-    {
-        // Tableau pour stocker les informations
-        $info = array();
-
-        /*
-         * Pour chaque ligne, on teste avec un test ternaire si la variable existe sur le serveur (isset), si elle existe on la retourne sinon on retourne null
-         */
-        // Nom de l'hôte
-        $info['host'] = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : null;
-
-        // Adresse IP du serveur
-        $info['server_ip'] = isset($_SERVER['SERVER_ADDR']) ? $_SERVER['SERVER_ADDR'] : null;
-
-        // Adresse IP du client
-        $info['client_ip'] = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null;
-
-        // Méthode de la requête
-        $info['request_method'] = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : null;
-
-        // Retourner le tableau d'informations
-        return $info;
-    }
-
-    public function redirectToScript($scriptDestination)
-    {
-        // Utiliser la fonction header() pour générer l'en-tête de redirection
-        header("Location: $scriptDestination", true, 302);
-
-        // Assurez-vous d'arrêter l'exécution du script après avoir envoyé l'en-tête de redirection
-        exit;
     }
 }
