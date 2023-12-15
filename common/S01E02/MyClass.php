@@ -1,6 +1,4 @@
 <?php
-
-
 //Création d'une classe abstraite
 abstract class MyMotherAbstractClass
 {
@@ -77,7 +75,7 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
         imagejpeg($img, "monImage.jpeg");
     }
 
-    //récupère le contenue de la page google et le met dans un fichier .txt
+    //class method that writes the contents of www.google.com into a file
     function getGoogleContentAndSave() : void {
         $response = file_get_contents("https://www.google.com");
         file_put_contents("contenuGoogle.txt", $response);
@@ -124,7 +122,7 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
         }
     }
 
-//class method qui permet d'afficher les valeur pair d'un tableau, utilise continue si elles ne le sont pas pour zapper la partie de l'affichage
+    //class method qui permet d'afficher les valeur pair d'un tableau, utilise continue si elles ne le sont pas pour zapper la partie de l'affichage
     function fonctionDoetContinue(array $tab) : void
     {
         $i = 0 ;
@@ -157,7 +155,7 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
     }
     function fnRam()
     {
-//class method that returns the currently consumed RAM and the maximum RAM your script can use (PHP maximum, not the current one)
+        //class method that returns the currently consumed RAM and the maximum RAM your script can use (PHP maximum, not the current one)
         echo "<br>";
         $usedMomory = memory_get_usage($real_usage = false); // récupère la ram, false permet de récupéré la ram utilisé par le script
         $totalMemory = memory_get_usage($real_usage = true);// true permet de récupérer la ram maximal alloué
