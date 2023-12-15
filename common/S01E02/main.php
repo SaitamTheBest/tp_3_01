@@ -91,6 +91,15 @@ $class->fnRam();
 //Remplacer le nom de la base par vos initiales (exemple : WL pour William Lefebvre)
 MyBDDClass::connectBDD("localhost", "root", "root", "AB");
 
+//Permet de récupérer les infos du serveur
+$infos = $class->getRequestInfo();
+
+// Affichage des informations
+echo "Nom de l'hôte : " . $infos['host'] . "<br>";
+echo "Adresse IP du serveur : " . $infos['server_ip'] . "<br>"; //n'affiche rien car on est en local
+echo "Adresse IP du client : " . $infos['client_ip'] . "<br>";
+echo "Méthode de la requête : " . $infos['request_method'] . "<br>";
+
 //$class->createImageAndSave("test");
 
 

@@ -152,4 +152,28 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
         var_dump($usedMomory);
 
     }
+
+    public function getRequestInfo()
+    {
+        // Tableau pour stocker les informations
+        $info = array();
+
+        /*
+         * Pour chaque ligne, on teste avec un test ternaire si la variable existe sur le serveur (isset), si elle existe on la retourne sinon on retourne null
+         */
+        // Nom de l'hôte
+        $info['host'] = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : null;
+
+        // Adresse IP du serveur
+        $info['server_ip'] = isset($_SERVER['SERVER_ADDR']) ? $_SERVER['SERVER_ADDR'] : null;
+
+        // Adresse IP du client
+        $info['client_ip'] = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null;
+
+        // Méthode de la requête
+        $info['request_method'] = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : null;
+
+        // Retourner le tableau d'informations
+        return $info;
+    }
 }
