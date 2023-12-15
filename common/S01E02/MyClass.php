@@ -137,20 +137,20 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
             $i++;
         }while ($i < sizeof($tab));
     }
-    function axelfaitlela() : void{
-        if (isset($_GET['test'])) {
-            echo $_GET['test'];
+    //class method that returns the currently passed HTTP GET value named test,
+    //for this to work, add ?name=test at the end of the local website address
+    function HTTP_GET_value(string $value) : string{
+        if (isset($_GET[$value])) {
+            return $_GET[$value];
         } else {
-            // Fallback behaviour goes here
+            return "HTTP GET failed, don't forget to add ?function_arg=get_value in the website address";
         }
     }
 
-    function redirectHTTP (string $your_script){
-
-        $redirectUrl = $your_script;
-
-        //use http code 302
-        header('Location: ' . $redirectUrl, true, 302);
+    //class method that outputs HTTP headers to redirect (HTTP 302) to another script (add a link to your script)
+    function redirectHTTP (string $your_script) : void{
+        //uses http code 302
+        header('Location: ' . $your_script, true, 302);
         exit();
     }
     function fnRam()
@@ -167,5 +167,29 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
         echo "mémoire utilisé actuellement par le script : ";
         var_dump($usedMomory);
 
+    }
+
+    public function getRequestInfo()
+    {
+        // Tableau pour stocker les informations
+        $info = array();
+
+        /*
+         * Pour chaque ligne, on teste avec un test ternaire si la variable existe sur le serveur (isset), si elle existe on la retourne sinon on retourne null
+         */
+        // Nom de l'hôte
+        $info['host'] = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : null;
+
+        // Adresse IP du serveur
+        $info['server_ip'] = isset($_SERVER['SERVER_ADDR']) ? $_SERVER['SERVER_ADDR'] : null;
+
+        // Adresse IP du client
+        $info['client_ip'] = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null;
+
+        // Méthode de la requête
+        $info['request_method'] = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : null;
+
+        // Retourner le tableau d'informations
+        return $info;
     }
 }
