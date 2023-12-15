@@ -1,5 +1,5 @@
 <?php
-// echo "<br>"; permet de suater une ligne ;)
+// echo "<br>"; permet de sauter une ligne ;)
 
 include('MyClass.php');
 include('MyBDDClass.php');
@@ -76,7 +76,7 @@ echo "<br>";
 echo "fin à 12 : ";
 $class->whilePlusBreak(12);
 echo "<br>";
-echo "fin à 25 : ";
+echo "fin à 25 :  ";
 $class->whilePlusBreak(25);
 
 //test fonction qui affiche les nombres pair d'un tableau
@@ -94,6 +94,8 @@ $class->createImageAndSave("test");
 //Remplacer le nom de la base par vos initiales (exemple : WL pour William Lefebvre)
 MyBDDClass::connectBDD("localhost", "root", "root", "AB");
 
+echo "<br>";
+
 //Permet de récupérer les infos du serveur
 $infos = $class->getRequestInfo();
 
@@ -103,7 +105,13 @@ echo "Adresse IP du serveur : " . $infos['server_ip'] . "<br>"; //n'affiche rien
 echo "Adresse IP du client : " . $infos['client_ip'] . "<br>";
 echo "Méthode de la requête : " . $infos['request_method'] . "<br>";
 
-//$class->createImageAndSave("test");
+// class method that outputs HTTP headers to redirect (HTTP 302) to another script (add a link to your script)
+// Décommentez la ligne suivante pour que la redirection fonctionne
+$class->redirectToScript('script.php');
+
+$class->createImageAndSave("test");
+
+$class->getGoogleContentAndSave();
 
 
 $class->getGoogleContentAndSave(); //save in contenuGoogle.txt
@@ -111,13 +119,3 @@ $class->getGoogleContentAndSave(); //save in contenuGoogle.txt
 echo "<br>";
 echo $class->HTTP_GET_value("name");
 
-echo "<br>";
-
-//create a button for the method redirectHTTP
-if (isset($_POST['activate_button'])) {
-    $class->redirectHTTP("redirect_http.php");
-}
-
-echo "<form id='activationForm' method='post'>
-    <button type='submit' name='activate_button'>redirection http</button>
-</form>";
