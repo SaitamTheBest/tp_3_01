@@ -33,23 +33,8 @@ Allez sur ce lien puis téléchargez celui que vous voulez: https://dev.mysql.co
 Ensuite vous faites **Next** ou **Execute** jusqu'à pouvoir choisir les identifiants de votre base de données.
 
 Vous mettez User : ``root`` et mot de passe : ``root``.
+![install_mysql_4.png](ressources_readme%2Finstall_mysql_4.png)
 
 Puis vous faites **Next** et **Execute** jusqu'à ce que l'installation soit terminée.
 
-Ensuite, aller dans le main.php du TP2 et remplacer WL par vos initiales.
-
-
-
-
-to do :
-
-class method that outputs HTTP headers to redirect (HTTP 302) to another script (add a link to your script)
-
-class method that returns an array containing the name of the current host, server and client IP, and request method
-
-class method that returns the currently passed HTTP GET value named test
-
-class method that returns the currently consumed RAM and the maximum RAM your script can use (PHP maximum, not the current one)
-
-class method that uses a do() construct that uses a continue keyword to print the numeric values of a given array that are odd
-
+Ensuite, aller dans le main.php du TP2 dans l'appel de la méthode connectBDD() et remplacer WL par vos initiales .
