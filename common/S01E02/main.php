@@ -1,5 +1,5 @@
 <?php
-// echo "<br>"; permet de sauter une ligne ;)
+// echo "<br>"; permet de suater une ligne ;)
 
 include('MyClass.php');
 include('MyBDDClass.php');
@@ -32,7 +32,7 @@ var_dump($class->getMotherInt());
 echo "<br>";
 
 //appel de la fonction implémenter de myinterface, elle affiche les nombres de 1 à 20
-    echo  "résultat de la fonction de l'interface : ";
+echo  "résultat de la fonction de l'interface : ";
 $class->afficherNombreDe1A20();
 
 echo "<br>";
@@ -42,7 +42,7 @@ $exempleArray = [10,9,8,11,12,13,7,6,5,4,3,2,1];
 //affichage tableau non trié
 var_dump($exempleArray);
 
- //tri la liste dans l'ordre croissant
+//tri la liste dans l'ordre croissant
 $exempleArray = $class->sortList($exempleArray);
 echo "<br>";
 
@@ -76,7 +76,7 @@ echo "<br>";
 echo "fin à 12 : ";
 $class->whilePlusBreak(12);
 echo "<br>";
-echo "fin à 25 :  ";
+echo "fin à 25 : ";
 $class->whilePlusBreak(25);
 
 //test fonction qui affiche les nombres pair d'un tableau
@@ -87,17 +87,14 @@ $class->fonctionDoetContinue($tabPair);
 $class->fnRam();
 
 
-$class->createImageAndSave("test");
-
-
 //Se connecter à la base de données
 //Remplacer le nom de la base par vos initiales (exemple : WL pour William Lefebvre)
 MyBDDClass::connectBDD("localhost", "root", "root", "AB");
 
-echo "<br>";
-
 //Permet de récupérer les infos du serveur
 $infos = $class->getRequestInfo();
+
+echo "<br>";
 
 // Affichage des informations
 echo "Nom de l'hôte : " . $infos['host'] . "<br>";
@@ -105,13 +102,12 @@ echo "Adresse IP du serveur : " . $infos['server_ip'] . "<br>"; //n'affiche rien
 echo "Adresse IP du client : " . $infos['client_ip'] . "<br>";
 echo "Méthode de la requête : " . $infos['request_method'] . "<br>";
 
-// class method that outputs HTTP headers to redirect (HTTP 302) to another script (add a link to your script)
-// Décommentez la ligne suivante pour que la redirection fonctionne
-$class->redirectToScript('script.php');
-
 $class->createImageAndSave("test");
-
-$class->getGoogleContentAndSave();
+?>
+    <br>
+    <img src="monImage.jpeg" alt="image" />
+    <br>
+<?php
 
 
 $class->getGoogleContentAndSave(); //save in contenuGoogle.txt
@@ -119,3 +115,13 @@ $class->getGoogleContentAndSave(); //save in contenuGoogle.txt
 echo "<br>";
 echo $class->HTTP_GET_value("name");
 
+echo "<br>";
+
+//create a button for the method redirectHTTP
+if (isset($_POST['activate_button'])) {
+    $class->redirectHTTP("redirect_http.php");
+}
+
+echo "<form id='activationForm' method='post'>
+    <button type='submit' name='activate_button'>redirection http</button>
+</form>";
