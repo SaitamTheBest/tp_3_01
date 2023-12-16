@@ -4,10 +4,10 @@ use PW\Class\B;
 
 
 // Permet à PHP de trouver nos classes
-spl_autoload_register(function($class){
+spl_autoload_register(function($missingNamespace){
     // On découpe les \
     // On prend le dernier élément (le nom du fichier)
-    $name = explode('\\', $class)[2];
+    $name = explode('\\', $missingNamespace)[2];
 
     include $name . '.php';
 });
