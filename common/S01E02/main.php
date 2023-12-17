@@ -71,7 +71,7 @@ $class->getGoogleContentAndSave(); //save in contenuGoogle.txt
 
 //create a button for the method redirectHTTP
 if (isset($_POST['activate_button'])) {
-    $class->redirectHTTP("redirect_http.php");
+    $class->redirectHTTP("redirect_http.php?name=parametre1");
 }
 
 echo "<form id='activationForm' method='post'>
@@ -104,12 +104,6 @@ echo "Nom de l'hôte : " . $infos['host'] . "<br>";
 echo "Adresse IP du serveur : " . $infos['server_ip'] . "<br>"; //n'affiche rien car on est en local
 echo "Adresse IP du client : " . $infos['client_ip'] . "<br>";
 echo "Méthode de la requête : " . $infos['request_method'] . "<br>";
-
-echo "<br>";
-
-//class method that returns the currently passed HTTP GET value named test
-//Il faut aller sur le site web via cette adresse http://127.0.0.1:8000/common/S01E02/main.php?test=test
-echo $class->HTTP_GET_value("test");
 
 echo "<br>";
 
