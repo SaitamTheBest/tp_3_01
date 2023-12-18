@@ -39,8 +39,8 @@ $val = "inconnue";
 //Permet de renvoyer la valeur $val si l'expression donnée est null ou si la variable n'existe pas
 echo "<br> avec un null puis une valeur : ";
 echo null??$val;
-echo "<br> avec une valeur puis une variable inconnue : ";
-echo $unknown = $val??$unknown;
+echo "<br>puis une variable inconnue puis une valeur : ";
+echo $unknown = $unknown??$val;
 echo "<br>";
 
 $age = 17;

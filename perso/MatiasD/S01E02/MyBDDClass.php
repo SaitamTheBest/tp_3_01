@@ -10,6 +10,7 @@ class MyBDDClass
             $pdo = new PDO("mysql:host=$serveur", $utilisateur, $motDePasse);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+            //Creer une nouvelle base
             $pdo->query("CREATE DATABASE IF NOT EXISTS $nomDeLaBase");
             $pdo->query("USE $nomDeLaBase");
 
