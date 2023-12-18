@@ -1,0 +1,9 @@
+{
+    "name": "phpstan/phpstan",
+    "autoload": {
+        "psr-4": {
+            "Phpstan\\Phpstan\\": "src/"
+        }
+    },
+    "require": {}
+}
