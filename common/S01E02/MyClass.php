@@ -136,35 +136,35 @@ class MyClass extends MyMotherAbstractClass implements MyInterface
         var_dump($usedMomory);
 
     }
-
+//fonction pour utiliser et prouver les switch et match à l'aide de la vérification si un caractère est une voyelle ou non
     function switchEtmatchPourUnCaract($caract){
         $vowels = ['a','e','i','o','u'];
         echo "<br>";
         echo 'switch : ';
-        switch ($caract){
-            case in_array(strtolower($caract), $vowels):
+        switch ($caract){ // utilise le switch pour vérifier si la caract est une voyelle ou non
+            case in_array(strtolower($caract), $vowels): // cas ou c'est une voyelle
                 echo 'voyelle';
                 break;
-            case !in_array(strtolower($caract), $vowels):
+            case !in_array(strtolower($caract), $vowels): // cas ou ce n'est pas une voyelle
                 echo 'consonne';
                 break;
             default:
-                echo 'y a un problème docteur';
+                echo 'y a un problème docteur'; //cas par défaut
         };
 
         echo "<br>";
         echo "<br>";
         echo "match : ";
-        echo match(true) {
-            in_array(strtolower($caract), $vowels) => 'voyelle',
-            !in_array(strtolower($caract), $vowels) => 'consonne',
-            default => 'y a un problème docteur',
+        echo match(true) {  // même chose avec match
+            in_array(strtolower($caract), $vowels) => 'voyelle',  //si c'est une voyelle
+            !in_array(strtolower($caract), $vowels) => 'consonne', // si ce n'est pas une voyelle
+            default => 'y a un problème docteur', // cas par défaut
         }, "<br>";
     }
 
     function whilePlusBreak($fin): void {
         $i = 0;
-        while (true){
+        while (true){ //boucle qui va utiliser break pour se fermer toute seul quand i atteint la valeur donné
             echo $i;
             $i++;
             if ($i >= $fin){
